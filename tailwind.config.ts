@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Japanese garden theme colors
+				zen: {
+					moss: '#5E6B4F',      // Verde musgo
+					stone: '#8E9196',     // Cinza pedra
+					paper: '#F8F8F6',     // Branco suave
+					earth: '#785A46',     // Marrom terroso
+					ink: '#333333',       // Preto suave
+				},
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['"Noto Serif JP"', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +97,72 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'ripple': {
+					'0%': {
+						transform: 'scale(0.95)',
+						opacity: '0.8'
+					},
+					'50%': {
+						transform: 'scale(1.05)',
+						opacity: '0.5'
+					},
+					'100%': {
+						transform: 'scale(0.95)',
+						opacity: '0.8'
+					}
+				},
+				'text-appear': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(5px)'
+					},
+					'20%, 80%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(-5px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 1.5s ease-out forwards',
+				'fade-out': 'fade-out 1.5s ease-out forwards',
+				'float': 'float 6s ease-in-out infinite',
+				'ripple': 'ripple 4s ease-in-out infinite',
+				'text-appear': 'text-appear 12s ease-in-out forwards',
 			}
 		}
 	},

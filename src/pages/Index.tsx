@@ -1,12 +1,38 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect, useState } from 'react';
+import ZenAudio from '../components/ZenAudio';
+import ZenElements from '../components/ZenElements';
 
 const Index = () => {
+  const [showQuote, setShowQuote] = useState(false);
+  
+  useEffect(() => {
+    // Show the quote after a short delay
+    const timer = setTimeout(() => {
+      setShowQuote(true);
+    }, 2000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-zen-paper to-zen-paper/90">
+      {/* Background elements */}
+      <ZenElements className="w-full h-full" />
+      
+      {/* Central message */}
+      <div className="absolute inset-0 flex items-center justify-center z-10">
+        {showQuote && (
+          <h1 
+            className="text-3xl md:text-5xl font-serif text-zen-moss/80 font-light tracking-wider animate-text-appear px-4 text-center"
+          >
+            Você não irá encontrar nada aqui.
+          </h1>
+        )}
       </div>
+      
+      {/* Audio control */}
+      <ZenAudio />
     </div>
   );
 };
