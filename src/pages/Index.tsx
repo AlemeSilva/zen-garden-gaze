@@ -1,16 +1,16 @@
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import ZenAudio from '../components/ZenAudio';
 import ZenElements from '../components/ZenElements';
 
 const Index = () => {
-  const [showQuote, setShowQuote] = useState(false);
+  const [visible, setVisible] = useState(false);
   
   useEffect(() => {
-    // Show the quote after a short delay
+    // Show the quote with a short delay for initial page load effect
     const timer = setTimeout(() => {
-      setShowQuote(true);
-    }, 2000);
+      setVisible(true);
+    }, 1000);
     
     return () => clearTimeout(timer);
   }, []);
@@ -22,9 +22,10 @@ const Index = () => {
       
       {/* Central message */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        {showQuote && (
+        {visible && (
           <h1 
-            className="text-3xl md:text-5xl font-serif text-zen-moss/80 font-light tracking-wider animate-text-appear px-4 text-center"
+            className="text-3xl md:text-5xl font-serif text-zen-moss/80 font-light tracking-wider px-4 text-center transition-all duration-1000
+                      animate-float hover:text-zen-moss hover:tracking-widest"
           >
             Você não irá encontrar nada aqui.
           </h1>
