@@ -32,6 +32,13 @@ const Index = () => {
         )}
       </div>
       
+      {/* Domain name at the bottom center */}
+      <div className="absolute bottom-4 w-full flex justify-center z-10">
+        <p className="text-zen-moss/60 text-sm font-light tracking-wide hover:text-zen-moss transition-colors duration-300">
+          www.lemesdasilva.com
+        </p>
+      </div>
+      
       {/* Audio control */}
       <ZenAudio />
     </div>
